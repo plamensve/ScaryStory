@@ -6,6 +6,7 @@ function solve() {
   let ageElement = document.getElementById("age");
   let storyTitleElement = document.getElementById("story-title");
   let storyElement = document.getElementById("story");
+  let genreElement = document.getElementById("genre");
   let publishBtnElement = document.getElementById("form-btn");
   let previewUlElement = document.getElementById("preview-list");
   let mainElement = document.getElementById("main");
@@ -19,7 +20,8 @@ function solve() {
       || lastNameElement.value == ''
       || ageElement.value == ''
       || storyTitleElement.value == ''
-      || storyElement.value == '') {
+      || storyElement.value == ''
+      || genreElement.value == '') {
       return;
     }
 
@@ -40,6 +42,8 @@ function solve() {
     let StoryText = document.createElement("p");
     StoryText.textContent = `${storyElement.value}`;
 
+    let Genre = document.createElement("p");
+    Genre.textContent = `Genre: ${genreElement.value}`;
 
     let saveBtn = document.createElement("button");
     saveBtn.setAttribute('class', 'save-btn');
@@ -57,6 +61,7 @@ function solve() {
     articleElement.appendChild(Age);
     articleElement.appendChild(StoryTitle);
     articleElement.appendChild(StoryText);
+    articleElement.appendChild(Genre);
 
     liElement.appendChild(articleElement);
     liElement.appendChild(saveBtn);
@@ -71,6 +76,7 @@ function solve() {
     let editAge = ageElement.value;
     let editTitle = storyTitleElement.value;
     let editStory = storyElement.value;
+    let editGenre = genreElement.value;
 
     firstNameElement.value = "";
     lastNameElement.value = "";
@@ -99,6 +105,7 @@ function solve() {
       ageElement.value = editAge;
       storyTitleElement.value = editTitle;
       storyElement.value = editStory;
+      genreElement.value = editGenre;
 
       liElement.remove();
 
